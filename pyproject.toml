@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools~=68.0.0", "wheel~=0.40.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name              = "xlib_hotkeys"
+version           = "2024.3.0"
+description       = "Register Keyboard Hotkeys to a callback function"
+readme            = "README.md"
+keywords          = ["keyboard", "hotkeys"]
+requires-python   = ">=3.7.0"
+authors     = [
+    {name="bkbilly", email="bkbilly@hotmail.com"}
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Unix",
+]
+dependencies = [
+    "python-xlib>=0.33"
+]
+
+
+[project.urls]
+"Source Code" = "https://github.com/bkbilly/xlib_hotkeys"
+
+[tool.setuptools.packages.find]
+include = ["xlib_hotkeys*"]
+
+[project.scripts]
+xlib-hotkeys = "xlib_hotkeys.__main__:main"
