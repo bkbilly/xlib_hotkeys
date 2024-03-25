@@ -21,5 +21,32 @@ pip install xlib-hotkeys
 ## Usage
 You can use this module from the command line
 ```bash
-xlib-hotkeys
+xlib-hotkeys -h
+xlib-hotkeys -d :0 -k ctrl+return shift+f2
+```
+
+```python
+from xlib_hotkeys import HotKeysManager
+
+
+def KeyDown(key, keyspressed):
+    print(f"Keys Pressed: {keyspressed}")
+
+
+def Hotkey1():
+    print(f" Hotkey1 detected")
+
+
+def Hotkey2():
+    print(f" Hotkey2 detected")
+
+
+hk = HotKeysManager(display_str=":0")
+hk.KeyDown = KeyDown
+hk.hotkeys["ctrl+return"] = Hotkey1()
+hk.hotkeys["shift+f2"] = Hotkey2()
+
+hk.start()
+time.sleep(50)
+hk.stop()
 ```
